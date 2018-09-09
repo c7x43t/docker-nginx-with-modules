@@ -24,7 +24,7 @@ RUN export NGINX_RAW_VERSION=$(echo $NGINX_VERSION | sed 's/-.*//g') \
         if [ -n "${module_tag}" ]; then git checkout "${module_tag}"; fi; \
         cd ..; \
         configure_args="${configure_args} --add-dynamic-module=./${dirname}"; \
-    done; unset IFS \
+    done; unset IFS \ 
     && eval ./configure ${configure_args} \
     && make modules \
     && mkdir /modules \
